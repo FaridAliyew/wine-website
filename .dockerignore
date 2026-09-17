@@ -1,0 +1,19 @@
+# Recreated inside the image
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+
+# Not needed to build or run the site
+.git
+.github
+docs
+README.md
+AGENTS.md
+CLAUDE.md
+Dockerfile
+.dockerignore
+.vercel
+.env*
+*.log

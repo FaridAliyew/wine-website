@@ -50,6 +50,28 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Create a production build |
 | `npm run start` | Serve the production build |
 | `npm run lint` | Run ESLint |
+| `npm run typecheck` | Check types with the TypeScript compiler |
+
+## Docker
+
+The image runs Next.js's minimal [standalone server](https://nextjs.org/docs/app/api-reference/config/next-config-js/output) on Node.js 24 as a non-root user, with a health check.
+
+```bash
+docker build -t domaine-auris .
+docker run --rm -p 3000:3000 domaine-auris
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## CI/CD
+
+[`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml) runs on every push and pull request:
+
+1. **Checks:** install, lint, typecheck and build.
+2. **Docker:** build the image, start it, and confirm every page and image optimisation respond.
+3. **Publish:** on pushes to the main branch and `v*` tags, push the image to GitHub Container Registry as `ghcr.io/<owner>/<repo>`, tagged `latest`, the commit SHA, and the version for tags.
+
+Publishing uses the workflow's built-in `GITHUB_TOKEN`, so no secrets need to be configured.
 
 ## Project structure
 
@@ -68,4 +90,6 @@ data/
   wines.ts               The five wines, including the colour poured into the glass
   estate.ts              Address, hours and enquiry emails
 docs/                    Images used in this README
+Dockerfile               Multi-stage production image
+.github/workflows/       CI/CD pipeline
 ```
