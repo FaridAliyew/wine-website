@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PourTransitionProvider from "@/components/PourTransition";
 import AgeGate from "@/components/AgeGate";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
             <AgeGate>{children}</AgeGate>
           </PourTransitionProvider>
         </SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
