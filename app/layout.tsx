@@ -24,8 +24,38 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wine-website-omega.vercel.app/"),
+
   title: "DOMAINE AURIS | Rare Wine Collection",
-  description: "Reserve wines from the foothills of the Lesser Caucasus in Tovuz, Azerbaijan. A fictional estate and design concept.",
+
+  description:
+    "Reserve wines from the foothills of the Lesser Caucasus in Tovuz, Azerbaijan. A refined luxury wine estate and digital experience.",
+
+  openGraph: {
+    title: "DOMAINE AURIS | Rare Wine Collection",
+    description:
+      "Discover a refined collection of reserve wines inspired by the foothills of the Lesser Caucasus in Tovuz, Azerbaijan.",
+    url: "https://wine-website-omega.vercel.app/",
+    siteName: "Domaine Auris",
+    type: "website",
+
+    images: [
+      {
+        url: "/wine-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Domaine Auris luxury wine collection website",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "DOMAINE AURIS | Rare Wine Collection",
+    description:
+      "Discover a refined collection of reserve wines inspired by the foothills of the Lesser Caucasus.",
+    images: ["/wine-og.png"],
+  },
 };
 
 export default function RootLayout({
